@@ -1,4 +1,4 @@
-package Maratona_2023.Prova;
+package maratona_2023.prova;
 
 import java.io.BufferedReader;
 import java.io.File;

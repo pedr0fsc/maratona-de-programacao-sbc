@@ -1,52 +1,56 @@
-package Maratona_2024.Prova;
+package maratona_2025.prova;
 
 import java.util.Scanner;
 
-public class E_Estojo_de_Joias {
+public class A_Alimentacao_Saudavel {
     public static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
         while(true) {
 
-            // INPUT - Número de colunas e linhas
-            System.out.print("\nDigite o número N de colunas e linhas: ");
+            // INPUT - Número de frutas
+            System.out.print("\nDigite o número de frutas: ");
             if (!sc.hasNextInt()) return;
             int n = sc.nextInt();
 
-            int[][] matrix = new int[n][n];
+            // INPUT - Número de turmas
+            System.out.print("\nDigite a quantidade de turmas: ");
+            if (!sc.hasNextInt()) return;
+            int m = sc.nextInt();
+
+            int[][] matrix = new int[n][m];
 
             // INPUT - Preenchendo os elementos da matriz
-            System.out.print("Enter the elements of the matrix:");
+            System.out.println("Enter the elements of the matrix:");
             for (int i = 0; i < n; i++) {
-                for (int j = 0; j < n; j++) {
+                for (int j = 0; j < m; j++) {
                     matrix[i][j] = sc.nextInt();
                 }
-            }   
+            }
 
             // Print dos elementos da matriz
             System.out.println("Your Matrix:");
             for (int i = 0; i < n; i++) {
-                for (int j = 0; j < n; j++) {
+                for (int j = 0; j < m; j++) {
                     System.out.print(matrix[i][j] + " ");
                 }
                 System.out.println();
             }
 
-            int[] numbers = {matrix[0][n-1], matrix[n-1][n-1], matrix[n-1][0], matrix[0][0]};
-            int min = java.util.Arrays.stream(numbers).min().getAsInt();
-            int num_giros;
+            // Soma total dos maiores valores de cada coluna
+            int sum_output = 0;
 
-            if(min == matrix[0][n-1]) {
-                num_giros = 1;
-            } else if(min == matrix[n-1][n-1]) {
-                num_giros = 2;
-            } else if(min == matrix[n-1][0]) {
-                num_giros = 3;
-            } else {
-                num_giros = 0;
+            // Loop para pegar o maior valor de cada coluna(turma)
+            for (int j = 0; j < m; j++) {
+                int max = matrix[0][j];
+                for (int i = 1; i < n; i++) {
+                    if (matrix[i][j] > max) max = matrix[i][j];
+                }
+                sum_output += max;
             }
 
-            System.out.printf("Número de giros da caixa: %d", num_giros);
+            // OUTPUT - Soma total
+            System.out.printf("Output: %d", sum_output);
 
             continuar();
         }

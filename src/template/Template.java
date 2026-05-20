@@ -1,4 +1,4 @@
-package Maratona_2022.Prova;
+package template;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class A_Achando_os_Monotonos_Nao_Triviais_Maximais {
+public class Template {
 
     private static BufferedReader reader;
     private static StringTokenizer tokenizer;
@@ -75,27 +75,28 @@ public class A_Achando_os_Monotonos_Nao_Triviais_Maximais {
         long startTime = System.nanoTime();
 
         try {
+            // Tenta ler do arquivo local se ele existir (Seu Ambiente de Testes)
             File myFile = new File("input.txt");
             if (myFile.exists()) {
                 reader = new BufferedReader(new FileReader(myFile));
             } else {
+                // Caso contrário, lê da entrada padrão do sistema (Juiz Online da Maratona)
                 reader = new BufferedReader(new InputStreamReader(System.in));
             }
 
-            int n = nextInt();
-            String seq = next();
-            assert seq != null;
-            char[] characters = seq.toCharArray();
-            int contador = 0;
+            // =================================================================
+            // REGRAS DO EXERCÍCIO / A SUA LÓGICA VAI AQUI
+            // =================================================================
 
-            for (int i = 0; i < n; i++) {
-                if (characters[i] == 'a' && i > 0) {
-                    if (i != n - 1 && characters[i + 1] == 'a') { contador++; }
-                    if (characters[i - 1] == 'a') { contador++; }
-                }
-            }
+            /* Exemplos de uso:
+               int n = nextInt();
+               double preco = nextDouble();
+               char opcao = nextChar();
+               String nomeUnico = nextString();
+               String fraseCompleta = nextLine();
+            */
 
-            System.out.println(contador);
+            // =================================================================
 
         } catch (IOException | NumberFormatException ignored) {
         } finally {

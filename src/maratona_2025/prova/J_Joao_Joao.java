@@ -1,4 +1,4 @@
-package Maratona_2025.Prova;
+package maratona_2025.prova;
 
 import java.util.Scanner;
 

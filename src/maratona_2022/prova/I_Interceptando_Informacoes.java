@@ -1,4 +1,4 @@
-package Maratona_2022.Prova;
+package maratona_2022.prova;
 
 import java.io.File;
 import java.io.FileNotFoundException;

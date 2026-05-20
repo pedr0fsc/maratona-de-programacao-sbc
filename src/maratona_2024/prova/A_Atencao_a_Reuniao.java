@@ -1,4 +1,4 @@
-package Maratona_2024.Prova;
+package maratona_2024.prova;
 
 import java.util.Scanner;
 

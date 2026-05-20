@@ -1,4 +1,4 @@
-package Template;
+package maratona_2022.prova;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Template {
+public class A_Achando_os_Monotonos_Nao_Triviais_Maximais {
 
     private static BufferedReader reader;
     private static StringTokenizer tokenizer;
@@ -75,28 +75,27 @@ public class Template {
         long startTime = System.nanoTime();
 
         try {
-            // Tenta ler do arquivo local se ele existir (Seu Ambiente de Testes)
             File myFile = new File("input.txt");
             if (myFile.exists()) {
                 reader = new BufferedReader(new FileReader(myFile));
             } else {
-                // Caso contrário, lê da entrada padrão do sistema (Juiz Online da Maratona)
                 reader = new BufferedReader(new InputStreamReader(System.in));
             }
 
-            // =================================================================
-            // REGRAS DO EXERCÍCIO / A SUA LÓGICA VAI AQUI
-            // =================================================================
+            int n = nextInt();
+            String seq = next();
+            assert seq != null;
+            char[] characters = seq.toCharArray();
+            int contador = 0;
 
-            /* Exemplos de uso:
-               int n = nextInt();
-               double preco = nextDouble();
-               char opcao = nextChar();
-               String nomeUnico = nextString();
-               String fraseCompleta = nextLine();
-            */
+            for (int i = 0; i < n; i++) {
+                if (characters[i] == 'a' && i > 0) {
+                    if (i != n - 1 && characters[i + 1] == 'a') { contador++; }
+                    if (characters[i - 1] == 'a') { contador++; }
+                }
+            }
 
-            // =================================================================
+            System.out.println(contador);
 
         } catch (IOException | NumberFormatException ignored) {
         } finally {
